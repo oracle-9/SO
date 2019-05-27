@@ -4,7 +4,7 @@
 /**
  * Maximum length for the name string.
  */
-static const unsigned int MAX_NAME_LEN = 512;
+#define MAX_NAME_LEN 512
 
 /**
  * A person with a name and age.

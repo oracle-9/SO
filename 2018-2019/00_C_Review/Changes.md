@@ -12,7 +12,7 @@
 - A `Doxyfile` and documentation were added. Use `make docs` to generate it.
 
 ## [PT]
-- As funções de `Person` têm agora o prefixo 'person', e foram renomeados de uma forma mais consistente:
+- As funções de `Person` têm agora o prefixo 'person', e foram renomeadas de uma forma mais consistente:
     - `new_person` -> `person_new`
     - `clone_person` -> `person_copy`
     - `destroy_person` -> `person_delete`

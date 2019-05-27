@@ -14,7 +14,7 @@ Person person_copy(const Person p) {
 
 void person_delete(Person p) { free(p.name); }
 
-char *person_get_name(const Person p) { return strdup(p.name); }
+char *person_get_name(const Person p) { return strndup(p.name, MAX_NAME_LEN); }
 
 void person_set_name(Person *p, const char *name) {
     free(p->name);

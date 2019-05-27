@@ -1,7 +1,7 @@
 # Changes made from the original worksheet
 
 ## [EN]
-- `person` functions now have the prefix 'person', and have been renamed more consistently:
+- `Person` functions now have the prefix 'person', and have been renamed more consistently:
     - `new_person` -> `person_new`
     - `clone_person` -> `person_copy`
     - `destroy_person` -> `person_delete`

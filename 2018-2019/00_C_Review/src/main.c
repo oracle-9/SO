@@ -9,19 +9,16 @@
 #define PERSON2_AGE 800
 
 int main(void) {
-    Person p1 = person_new(PERSON1_NAME, PERSON1_AGE); /* needs freeing */
-    char *const name       = person_get_name(p1);      /* needs freeing */
-    const unsigned int age = person_get_age(p1);
+    Person p1 = person_new(PERSON1_NAME, PERSON1_AGE);
 
     printf("Person 1 {\n"
            "    name: %s\n"
            "    age: %u\n"
            "}\n",
-           name,
-           age);
+           person_get_name(p1),
+           person_get_age(p1));
 
     Person p2 = person_copy(p1);
-    free(name);
     person_delete(p1);
 
     person_set_name(&p2, PERSON2_NAME);
@@ -30,8 +27,8 @@ int main(void) {
            "    name: %s\n"
            "    age: %u\n"
            "}\n",
-           p2.name,
-           p2.age);
+           person_get_name(p2),
+           person_get_age(p2));
 
     person_delete(p2);
 }

@@ -1,7 +1,7 @@
 _CC             = gcc
 _SRC_EXT       = .c
 _HEAD_EXT       = .h
-_WARN_FLAGS     = --std=gnu11 -pedantic -W -Wall
+_WARN_FLAGS     = --std=c11 -pedantic -W -Wall
 _OPTIMIZE_FLAGS = -O2 -march=native
 _DEBUG_FLAGS    = -g
 

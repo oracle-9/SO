@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 200809L /* strndup() */
+
 #include "Person.h"
 
 #include <stdio.h>
@@ -14,7 +16,7 @@ Person person_copy(const Person p) {
 
 void person_delete(Person p) { free(p.name); }
 
-char *person_get_name(const Person p) { return strndup(p.name, MAX_NAME_LEN); }
+const char *person_get_name(const Person p) { return p.name; }
 
 void person_set_name(Person *p, const char *name) {
     free(p->name);

@@ -38,11 +38,11 @@ Person person_copy(const Person p);
 void person_delete(Person p);
 
 /**
- * Returns a copy of a person's name.
+ * Returns a person's name.
  * @param person the person.
  * @return the person's name.
  */
-char *person_get_name(const Person p);
+const char *person_get_name(const Person p);
 
 /**
  * Sets a person's name to the given name.

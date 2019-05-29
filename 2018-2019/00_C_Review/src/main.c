@@ -1,7 +1,7 @@
 #include "Person.h"
 
+#include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 #define PERSON1_NAME "Oracle"
 #define PERSON1_AGE 791
@@ -17,7 +17,8 @@ int main(void) {
            "    name: %s\n"
            "    age: %u\n"
            "}\n",
-           name, age);
+           name,
+           age);
 
     Person p2 = person_copy(p1);
     free(name);
@@ -29,7 +30,8 @@ int main(void) {
            "    name: %s\n"
            "    age: %u\n"
            "}\n",
-           p2.name, p2.age);
+           p2.name,
+           p2.age);
 
     person_delete(p2);
 }

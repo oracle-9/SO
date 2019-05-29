@@ -5,11 +5,11 @@
 #include <string.h>
 
 Person person_new(const char *name, unsigned age) {
-    return (Person){.name = strndup(name, MAX_NAME_LEN), .age = age};
+    return (Person){ .name = strndup(name, MAX_NAME_LEN), .age = age };
 }
 
 Person person_copy(const Person p) {
-    return (Person){.name = strndup(p.name, MAX_NAME_LEN), .age = p.age};
+    return (Person){ .name = strndup(p.name, MAX_NAME_LEN), .age = p.age };
 }
 
 void person_delete(Person p) { free(p.name); }

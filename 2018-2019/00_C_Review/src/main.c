@@ -1,3 +1,13 @@
+/*
+ * Description : University of Minho Operating Systems 2018/2019 worksheet 0
+ *               solved exercises.
+ *               Resolução da ficha 0 de Sistemas Operativos 2018/2019 da
+ *               Universidade do Minho.
+ * Copyright   : © Oracle, 2019
+ * License     : MIT
+ * Maintainer  : oracle.uminho@gmail.com
+ */
+
 #include "Person.h"
 
 #include <fcntl.h>

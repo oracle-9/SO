@@ -1,3 +1,13 @@
+/*
+ * Description : University of Minho Operating Systems 2018/2019 worksheet 1
+ *               solved exercise 1.
+ *               Resolução do exercício 1 da ficha 2 de Sistemas Operativos
+ *               2018/2019 da Universidade do Minho.
+ * Copyright   : © Oracle, 2019
+ * License     : MIT
+ * Maintainer  : oracle.uminho@gmail.com
+ */
+
 #define _POSIX_C_SOURCE 200809L /* truncate() */
 
 #include <fcntl.h>
@@ -28,13 +38,13 @@ enum ErrorCodes {
  *                  other: all other users
  */
 
-int main(int argc, const char *argv[]) {
-    if (!argc) {
+int main(int argc, const char **argv) {
+    if (argc < 2) {
         return ERR_INV_ARGC;
     }
 
     const int out = open(argv[1], O_WRONLY | O_TRUNC | O_CREAT, 0666);
-    if (out == -1) {
+    if (-1 == out) {
         return ERR_OPEN_FAILED;
     }
 

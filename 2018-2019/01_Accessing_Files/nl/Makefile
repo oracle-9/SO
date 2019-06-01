@@ -11,14 +11,13 @@ _WARN_FLAGS     = --std=c11 -pedantic -W -Wall
 _OPTIMIZE_FLAGS = -O2 -march=native
 _EXE            = nl
 
-all: $(_EXE)
+$(_EXE): nl.o readln.o
+	$(_CC) $^ -o $@
 
 clean:
 	rm nl nl.o readln.o
 
 
-$(_EXE): nl.o readln.o
-	$(_CC) $^ -o $@
 
 nl.o: nl.c
 	$(_CC) -c $(_WARN_FLAGS) $(_OPTIMIZE_FLAGS) $< -o $@

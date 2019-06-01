@@ -51,7 +51,7 @@ int main(int argc, const char **argv) {
 #else
     char buf[buf_size];
 #endif
-    ssize_t read_chars = readln(in, buf, buf_size);
+    const ssize_t read_chars = readln(in, buf, buf_size);
 
     if (close(in) == -1) {
         return ERR_CLOSE_FAILED;

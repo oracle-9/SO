@@ -9,7 +9,7 @@
 _CC             = gcc
 _WARN_FLAGS     = --std=c11 -pedantic -W -Wall
 _OPTIMIZE_FLAGS = -O2 -march=native
-_EXE 			= nl
+_EXE            = nl
 
 all: $(_EXE)
 

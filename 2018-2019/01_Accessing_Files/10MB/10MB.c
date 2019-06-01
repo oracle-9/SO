@@ -38,7 +38,7 @@ enum ErrorCodes {
  *                  other: all other users
  */
 
-int main(int argc, const char **argv) {
+int main(int argc, char **argv) {
     if (argc < 2) {
         return ERR_INV_ARGC;
     }

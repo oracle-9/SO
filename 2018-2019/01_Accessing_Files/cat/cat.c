@@ -1,6 +1,6 @@
 /*
  * Description : University of Minho Operating Systems 2018/2019 worksheet 1
- *               solved exercise 2.
+ *               solved exercises 2 and 3.
  *               Resolução do exercício 2 da ficha 1 de Sistemas Operativos
  *               2018/2019 da Universidade do Minho.
  * Copyright   : © Oracle, 2019

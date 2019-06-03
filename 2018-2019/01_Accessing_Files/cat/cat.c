@@ -28,10 +28,15 @@ void cat_buffered(size_t buffer_size) {
 #else
     char buf[buffer_size];
 #endif
+
     int n;
     while ((n = read(STDIN_FILENO, buf, buffer_size)) > 0) {
         write(STDOUT_FILENO, buf, n);
     }
+
+#ifdef USE_HEAP
+    free(buf);
+#endif
 }
 
 /*

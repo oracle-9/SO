@@ -14,7 +14,7 @@
 
 #define LINE_CHAR_LIMIT 512
 
-enum ErrorCodes { ERR_OPEN_FAILED = 1, ERR_CLOSE_FAILED = 2 };
+enum ErrorCodes { ERR_OPEN_FAILED = 42, ERR_CLOSE_FAILED = 43 };
 
 extern ssize_t readln(int fildes, void *buf, size_t nbyte);
 

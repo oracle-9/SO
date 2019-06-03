@@ -24,7 +24,7 @@ _EXE 	    = person
 _SOURCES = $(shell find $(_SOURCE_DIR) -name '*.c')
 _HEADERS = $(shell find $(_HEADER_DIR) -name '*.h')
 
-_BUILD_OBJS = $(patsubst $(_SOURCE_DIR)/%.c,$(_OUT_DIR)/%.o,$(_SOURCES))
+_BIN_OBJS   = $(patsubst $(_SOURCE_DIR)/%.c,$(_OUT_DIR)/%.o,$(_SOURCES))
 _DEBUG_OBJS = $(patsubst $(_SOURCE_DIR)/%.c,$(_DEBUG_DIR)/%.o,$(_SOURCES))
 _PROF_OBJS  = $(patsubst $(_SOURCE_DIR)/%.c,$(_PROF_DIR)/%.o,$(_SOURCES))
 
@@ -55,10 +55,10 @@ _bin_dir:
 _out_dir:
 	@mkdir -p $(_OUT_DIR)
 
-$(_BIN_DIR)/$(_EXE): $(_BUILD_OBJS)
+$(_BIN_DIR)/$(_EXE): $(_BIN_OBJS)
 	$(_CC) $^ -o $@
 
-$(_BUILD_OBJS): $(_OUT_DIR)/%.o : $(_SOURCE_DIR)/%.c
+$(_BIN_OBJS): $(_OUT_DIR)/%.o : $(_SOURCE_DIR)/%.c
 	mkdir -p $(dir $@)
 	$(_CC) -c -I$(_HEADER_DIR) $(_WARN_FLAGS) $(_OPTIMIZE_FLAGS) $< -o $@
 

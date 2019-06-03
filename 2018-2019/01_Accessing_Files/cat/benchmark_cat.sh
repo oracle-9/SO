@@ -7,7 +7,6 @@
 # Copyright   : © Oracle, 2019
 # License     : MIT
 # Maintainer  : oracle.uminho@gmail.com
-#
 
 # If on an arch-based OS, requires package time installed
 # (e.g. sudo pacman -S time)

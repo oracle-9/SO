@@ -16,10 +16,10 @@
 #define FILE_SIZE 1E+7 /* 10 MB */
 
 enum ErrorCodes {
-    ERR_INV_ARGC     = 1,
-    ERR_OPEN_FAILED  = 2,
-    ERR_TRUNC_FAILED = 3,
-    ERR_CLOSE_FAILED = 4
+    ERR_INV_ARGC     = 42,
+    ERR_OPEN_FAILED  = 43,
+    ERR_TRUNC_FAILED = 44,
+    ERR_CLOSE_FAILED = 45
 };
 
 /*

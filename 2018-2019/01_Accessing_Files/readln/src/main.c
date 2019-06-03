@@ -8,19 +8,19 @@
  * Maintainer  : oracle.uminho@gmail.com
  */
 
-#include "readln.h"
-
 #include <fcntl.h>
 #include <stdlib.h> /* strtoul, possible malloc */
 #include <unistd.h>
 
 enum ErrorCodes {
-    ERR_INV_ARGC     = 1,
-    ERR_INV_ARGV     = 2,
-    ERR_OPEN_FAILED  = 3,
-    ERR_CLOSE_FAILED = 4,
-    ERR_WRITE_FAILED = 5
+    ERR_INV_ARGC     = 42,
+    ERR_INV_ARGV     = 43,
+    ERR_OPEN_FAILED  = 44,
+    ERR_CLOSE_FAILED = 45,
+    ERR_WRITE_FAILED = 46
 };
+
+extern ssize_t readln(int fildes, void *buf, size_t nbyte);
 
 /*
  * Program must be called with the first argument being the file path, and the

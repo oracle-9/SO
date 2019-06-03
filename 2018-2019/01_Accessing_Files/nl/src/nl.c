@@ -8,8 +8,6 @@
  * Maintainer  : oracle.uminho@gmail.com
  */
 
-#include "../readln/readln.h"
-
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -17,6 +15,8 @@
 #define LINE_CHAR_LIMIT 512
 
 enum ErrorCodes { ERR_OPEN_FAILED = 1, ERR_CLOSE_FAILED = 2 };
+
+extern ssize_t readln(int fildes, void *buf, size_t nbyte);
 
 int main(int argc, char **argv) {
     const int in = (argc > 1) ? open(argv[1], O_RDONLY) : STDIN_FILENO;

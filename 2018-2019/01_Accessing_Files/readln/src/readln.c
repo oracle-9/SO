@@ -8,12 +8,21 @@
  * Maintainer  : oracle.uminho@gmail.com
  */
 
-#ifndef READLN_H
-#define READLN_H
+#include <unistd.h>
 
-#include <stddef.h>
-#include <sys/types.h>
+ssize_t readln(int fildes, void *buf, size_t nbyte) {
+    size_t i = 0;
 
-ssize_t readln(int fildes, void *buf, size_t nbyte);
+    while (i < nbyte) {
+        const ssize_t n = read(fildes, (char *)buf + i, 1);
+        if (n <= 0) {
+            return n;
+        }
 
-#endif
+        if ('\n' == ((char *)buf)[i++]) {
+            break;
+        }
+    }
+
+    return i;
+}

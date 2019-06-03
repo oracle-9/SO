@@ -86,6 +86,7 @@ do
     echo -en "\r$i/$n"
 done
 
+rm cat
 truncate -s-1 "$2"
 echo -e "\nCheck $2 for benchmarks."
 tput cnorm

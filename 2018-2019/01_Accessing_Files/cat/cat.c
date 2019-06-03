@@ -29,7 +29,7 @@ void cat_buffered(size_t buffer_size) {
     char buf[buffer_size];
 #endif
 
-    int n;
+    ssize_t n;
     while ((n = read(STDIN_FILENO, buf, buffer_size)) > 0) {
         write(STDOUT_FILENO, buf, n);
     }

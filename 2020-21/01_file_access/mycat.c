@@ -26,19 +26,24 @@ enum {
     ERR_INV_BUF_SIZE,
     ERR_ALLOC_FAIL,
     ERR_READ_FAIL,
+    ERR_WRITE_FAIL,
 };
 
 int main(int argc, char* argv[]) {
     char const* const prog_name = "mycat";
+    int ret = SUCCESS;
+
     if (argc < 2) {
         fprintf(stderr, "%s: missing buffer size\n", prog_name);
-        return ERR_NO_BUF_SIZE;
+        ret = ERR_NO_BUF_SIZE;
+        goto RET;
     }
 
     size_t const buf_size = (size_t) strtoull(argv[1], NULL, 10);
-    if (!buf_size) {
+    if (buf_size == 0) {
         fprintf(stderr, "%s: buffer size cannot be zero\n", prog_name);
-        return ERR_INV_BUF_SIZE;
+        ret = ERR_INV_BUF_SIZE;
+        goto RET;
     }
 
     char* const buf = malloc(buf_size);
@@ -49,7 +54,8 @@ int main(int argc, char* argv[]) {
             prog_name,
             strerror(errno)
         );
-        return ERR_ALLOC_FAIL;
+        ret = ERR_ALLOC_FAIL;
+        goto RET;
     }
 
     for (;;) {
@@ -62,10 +68,10 @@ int main(int argc, char* argv[]) {
                 prog_name,
                 strerror(errno)
             );
-            free(buf);
-            return ERR_READ_FAIL;
+            ret = ERR_READ_FAIL;
+            goto CLEANUP_BUF;
         case 0:
-            goto EXIT_LOOP;
+            goto CLEANUP_BUF;
         default:
             if (write(STDOUT_FILENO, buf, (size_t) n) == -1) {
                 fprintf(
@@ -74,11 +80,14 @@ int main(int argc, char* argv[]) {
                     prog_name,
                     strerror(errno)
                 );
+                ret = ERR_WRITE_FAIL;
+                goto CLEANUP_BUF;
             }
         }
     }
 
-    EXIT_LOOP:
+    CLEANUP_BUF:
     free(buf);
-    return SUCCESS;
+    RET:
+    return ret;
 }

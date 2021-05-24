@@ -1,4 +1,4 @@
-# OS
+# Operating Systems
 University of Minho Operating Systems solved worksheets and tests.<br/>
 
 **Several changes were made to the original exercises.<br/>

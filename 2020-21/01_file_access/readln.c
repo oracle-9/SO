@@ -25,25 +25,23 @@ ssize_t readln(int fd, char* buf, size_t nbyte) {
         goto RET;
     }
 
-    char const* const end = buf + nbyte;
+    char const* const end = buf + nbyte - 1;
     char* i = buf;
     for ( ; i != end; ++i) {
         ssize_t const n = read(fd, i, 1);
-        if (n <= 0) {
-            ret = n;
-            break;
+        if (n == -1) {
+            // if read fails, we discard the whole line.
+            *buf = '\0';
+            ret = -1;
+            goto RET;
         }
-        if (*i == '\n') {
-            ret = i - buf;
+        if (n == 0 || *i == '\n') {
             break;
         }
     }
-    if (i != end) {
-        *i = '\0';
-    } else {
-        i[-1] = '\0';
-        ret = i - buf - 1;
-    }
+
+    ret = i - buf;
+    *i = '\0';
 
     RET:
     return ret;

@@ -21,7 +21,6 @@ ssize_t readln(int fd, char* buf, size_t nbyte) {
     ssize_t ret = 0;
 
     if (nbyte == 0) {
-        ret = 0;
         goto RET;
     }
 
